@@ -19,3 +19,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+prisma/dev.sqlite3
+prisma/dev.sqlite3
+public/output.css
