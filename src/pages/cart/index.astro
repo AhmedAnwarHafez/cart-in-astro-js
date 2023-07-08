@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+import Cart from  '../../components/Cart.tsx'
+---
+
+<Layout title="Cart">
+  <h1>Cart</h1>
+  <p>Cart is empty</p>
+  <Cart client:load />
+</Layout>

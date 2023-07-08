@@ -1,0 +1,18 @@
+---
+import { PrismaClient } from '@prisma/client'
+
+import ProductItem from '../components/ProductItem'
+
+const prisma = new PrismaClient()
+const products = await prisma.products.findMany()
+---
+
+<a href='/cart'>View Cart</a>
+
+<ul class="flex flex-col gap-2">
+  {products.map((product) => (
+    <li key={product.id}>
+      <ProductItem product={product} client:load />      
+    </li>
+  ))}
+</ul>

@@ -1,12 +1,18 @@
 ---
+import type { CartItemDisplayInfo } from '../cartStore';
 import Layout from '../layouts/Layout.astro';
-import List from '../components/List.tsx';
+import AddToCartForm from '../components/AddToCart.tsx';
+import List from '../components/List.astro';
+
+const item: CartItemDisplayInfo = {
+	id: 'astronaut-figurine',
+	name: 'Astronaut Figurine',
+};
 ---
 
-<Layout title="Hello Astro">
-	<main>
-		<List />
+<Layout title={item.name}>
+		<main>
+			<List />
 	</main>
 </Layout>
-
 
