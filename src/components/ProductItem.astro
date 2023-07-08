@@ -1,0 +1,26 @@
+---
+import { PrismaClient} from '@prisma/client'
+
+const { product } = Astro.props
+---
+
+<div className="flex border p-4 shadow shadow-black m-2 justify-between">
+  <div className="flex flex-col">
+    <h3 className="font-medium">{product.name}</h3>
+    <p className="italic">{product.description}</p>
+  </div>
+
+  <form method="POST" action="/api/cart">
+    <input
+      type="hidden"
+      name="productId"
+      value={product.id}
+    />
+    <button
+      className="self-baseline text-blue-300 underline hover:text-blue-500 focus:cursor-pointer"
+    >
+      Add to Cart
+    </button>
+  </form>
+</div>
+
