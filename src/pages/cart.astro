@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+const products = await prisma.cart.findMany({
+  include: {
+    product: true,
+  },
+})
+---
+
+<Layout title="Cart">
+  <h1>Cart</h1>
+  <p>Cart is empty</p>
+  <ul>
+    {products.map((product) => (
+      <li>
+        {product.product.name} - {product.quantity}
+      </li>
+    ))}
+</Layout>
